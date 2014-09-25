@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Random Dice</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="js/drawdice.js"></script>
+    <script type='text/javascript'>
+        function init() {
+            var six = "myCanvas";
+            var ten = "tenCanvas";
+            drawSix(six);
+            drawTen(ten);
+            document.getElementById(six).onclick = function() {
+                drawSix(six);
+            };
+            document.getElementById(ten).onclick = function() {
+                drawTen(ten);
+            };
+        }
+    </script>
+    <style id="canvasStyle">
+        .dieCanvas {
+            border: 1px solid #000; 
+        }             
+    </style>              
+</head>
+<body onload="javascript: init();">
+    <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <p>Here are some random six-sided dice.</p>
+
+    <canvas class="dieCanvas" id="myCanvas" width="640" height="200"></canvas>
+
+    <p>Here are some random ten-sided dice.</p>
+
+    <canvas class="dieCanvas" id="tenCanvas" width="640" height="480"></canvas>
+
+</body>
+</html>
