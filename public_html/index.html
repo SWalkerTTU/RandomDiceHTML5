@@ -15,20 +15,7 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     <script src="js/drawdice.js"></script>
-    <script type='text/javascript'>
-        function init() {
-            var six = "myCanvas";
-            var ten = "tenCanvas";
-            drawSix(six);
-            drawTen(ten);
-            document.getElementById(six).onclick = function() {
-                drawSix(six);
-            };
-            document.getElementById(ten).onclick = function() {
-                drawTen(ten);
-            };
-        }
-    </script>
+    <script src="js/init.js"></script>
     <style id="canvasStyle">
         .dieCanvas {
             border: 1px solid #000; 
