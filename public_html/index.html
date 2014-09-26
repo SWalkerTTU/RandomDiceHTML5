@@ -17,7 +17,10 @@
     <style id="canvasStyle">
         .dieCanvas {
             border: 1px solid #000; 
-        }             
+        }
+        #javaDice {
+            border: 1px solid #000;
+        }
     </style>              
 </head>
 <body onload="javascript: init();">
@@ -34,5 +37,14 @@
 
     <canvas class="dieCanvas" id="tenCanvas" width="640" height="480"></canvas>
 
+    <p>Here's a Java applet that does pretty much the same thing.</p>
+    
+    <object id="javaDice" width="640" height="480"
+            type="application/x-java-applet">
+        <param name="codebase" value="java/" />
+        <param name="code" value="randomdice.RandomDice" />
+        <param name="archive" value="RandomDice4.jar" />
+        <param name="mayscript" value="true"/>
+    </object>
 </body>
 </html>
