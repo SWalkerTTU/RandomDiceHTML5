@@ -42,25 +42,22 @@ function dice(x, y, sixMode) {
     }
 }
 
-function drawSix(elem) {
+function drawDice(elem, sixMode){
     dieGrid(elem);
 
     for (var i = 0; i < 5; i++) {
         for (var j = 0; j < 2; j++) {
-            dice(i * cellW, j * cellH, true);
+            dice(i * cellW, j * cellH, sixMode);
         }
-    }
+    }    
+}
+
+function drawSix(elem) {
+    drawDice(elem, true);
 }
 
 function drawTen(elem) {
-    dieGrid(elem);
-
-    for (var i = 0; i < 5; i++) {
-        for (var j = 0; j < 2; j++) {
-            dice(i * cellW, j * cellH, false);
-        }
-    }
-
+    drawDice(elem, false);
 }
 
 function six_die(x, y) {
