@@ -1,39 +1,5 @@
 var ctx, size, cellW, cellH;
 
-function ten_die(x, y) {
-    var num = Math.floor(Math.random() * 10);
-
-    ctx.setTransform(size, 0, 0, size, x, y);
-
-    //Draw background
-    ctx.beginPath();
-    ctx.moveTo(1 / 2, 0);
-    ctx.lineTo(1, 1 / 3);
-    ctx.lineTo(1, 2 / 3);
-    ctx.lineTo(0.5, 1);
-    ctx.lineTo(0, 2 / 3);
-    ctx.lineTo(0, 1 / 3);
-    ctx.lineTo(0.5, 0);
-    ctx.lineTo(5 / 6, 7 / 9);
-    ctx.lineTo(1 / 2, 1);
-    ctx.lineTo(1 / 6, 7 / 9);
-    ctx.closePath();
-    ctx.lineWidth = 1 / size;
-    ctx.fillStyle = "#ff0000";
-    ctx.fill();
-    ctx.stroke();
-
-    //Draw random number
-    ctx.fillStyle = "#ffffff";
-    var fontHeight = 12;
-    var fontScale = fontHeight * 7 / 18 / size;
-    var txtWidth = ctx.measureText(num).width;
-    var txtShiftH = 0.5 - (txtWidth * fontScale / 2);
-    var txtShiftV = fontHeight * fontScale * 9 / 7;
-    ctx.transform(fontScale, 0, 0, fontScale, txtShiftH, txtShiftV);
-    ctx.fillText(num, 0, 1);
-}
-
 function dice(x, y, sixMode) {
     var hBord = (cellW <= cellH) ? (cellW - size) / 2 : (cellW - 2 * size) / 3;
     var vBord = (cellW <= cellH) ? (cellH - 2 * size) / 3 : (cellH - size) / 2;
@@ -46,7 +12,7 @@ function dice(x, y, sixMode) {
         six_die(x + h1, y + v1);
         six_die(x + h2, y + v2);
     } else {
-        ten_die(x + h1, y + v1);
+//        ten_die(x + h1, y + v1);
         ten_die(x + h2, y + v2);
     }
 }
@@ -58,7 +24,7 @@ function drawDice(elem, sixMode) {
     cellH = c.height / 2;
     size = Math.min(3 * cellW / 4, 6 * cellH / 13);
 
-    ctx.clearRect(0,0, c.width, c.height);
+    ctx.clearRect(0, 0, c.width, c.height);
 
     ctx.fillStyle = "#000";
     for (var col = 0; col < 5; col++) {
@@ -111,4 +77,38 @@ function six_die(x, y) {
         ctx.closePath();
         ctx.fill();
     }
+}
+
+function ten_die(x, y) {
+
+    ctx.setTransform(size, 0, 0, size, x, y);
+
+    //Draw background
+    ctx.beginPath();
+    ctx.moveTo(1 / 2, 0);
+    ctx.lineTo(1, 1 / 3);
+    ctx.lineTo(1, 2 / 3);
+    ctx.lineTo(0.5, 1);
+    ctx.lineTo(0, 2 / 3);
+    ctx.lineTo(0, 1 / 3);
+    ctx.lineTo(0.5, 0);
+    ctx.lineTo(5 / 6, 7 / 9);
+    ctx.lineTo(1 / 2, 1);
+    ctx.lineTo(1 / 6, 7 / 9);
+    ctx.closePath();
+    ctx.lineWidth = 1 / size;
+    ctx.fillStyle = "#ff0000";
+    ctx.fill();
+    ctx.stroke();
+
+    //Draw random number
+    var num = Math.floor(Math.random() * 10);
+    ctx.fillStyle = "#ffffff";
+    var fontHeight = 12;
+    var fontScale = fontHeight * 7 / 18 / size;
+    var txtWidth = ctx.measureText(num).width;
+    var txtShiftH = 0.5 - (txtWidth * fontScale / 2);
+    var txtShiftV = fontHeight * fontScale * 9 / 7;
+    ctx.transform(fontScale, 0, 0, fontScale, txtShiftH, txtShiftV);
+    ctx.fillText(num, 0, 1);
 }
