@@ -4,48 +4,45 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Random Dice</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    <script src="js/drawdice.js"></script>
-    <script src="js/init.js"></script>
-    <style id="canvasStyle">
-        .dieCanvas {
-            border: 1px solid #000; 
-        }
-        #javaDice {
-            border: 1px solid #000;
-        }
-    </style>              
-</head>
-<body onload="javascript: init();">
-    <!--[if lt IE 7]>
-        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Random Dice</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/drawdice.js"></script>
+        <script src="js/init.js"></script>
+        <style id="canvasStyle">
+            .dieCanvas {
+                border: 1px solid #000; 
+            }
+            #javaDice {
+                border: 1px solid #000;
+            }
+        </style>              
+    </head>
+    <body onload="init();">
 
-    <!-- Add your site or application content here -->
-    <p>Here are some random six-sided dice.</p>
+        <p>Here are some random six-sided dice.</p>
 
-    <canvas class="dieCanvas" id="myCanvas" width="640" height="200"></canvas>
+        <canvas class="dieCanvas" id="myCanvas" width="640" height="200"></canvas>
 
-    <p>Here are some random ten-sided dice.</p>
+        <p>Here are some random ten-sided dice.</p>
 
-    <canvas class="dieCanvas" id="tenCanvas" width="640" height="480"></canvas>
-    <!--
-    <p>Here's a Java applet that does pretty much the same thing.</p>
-    
-    <object id="javaDice" width="640" height="480"
-            type="application/x-java-applet">
-        <param name="codebase" value="java/" />
-        <param name="code" value="randomdice.RandomDice" />
-        <param name="archive" value="RandomDice4.jar" />
-        <param name="mayscript" value="true"/>
-    </object>
-    -->
-</body>
+        <canvas class="dieCanvas" id="tenCanvas" width="640" height="480"></canvas>
+
+<!--        <p>Here's a Java applet that does pretty much the same thing.</p>
+
+        <object id="javaDice" width="640" height="480"
+                type="application/x-java-applet">
+            <param name="codebase" value="java/" /> 
+            <param name="code" value="randomdice.RandomDice" />
+            <param name="archive" value="RandomDice4.jar" />
+            <param name="mayscript" value="true"/>
+        </object>-->
+
+
+    </body>
 </html>

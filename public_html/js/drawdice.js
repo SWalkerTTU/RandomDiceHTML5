@@ -12,7 +12,7 @@ function dice(x, y, sixMode) {
         six_die(x + h1, y + v1);
         six_die(x + h2, y + v2);
     } else {
-//        ten_die(x + h1, y + v1);
+        ten_die(x + h1, y + v1);
         ten_die(x + h2, y + v2);
     }
 }
@@ -27,18 +27,13 @@ function drawDice(elem, sixMode) {
     ctx.clearRect(0, 0, c.width, c.height);
 
     ctx.fillStyle = "#000";
-    for (var col = 0; col < 5; col++) {
-        for (var row = 0; row < 2; row++) {
+    for (var row = 0; row < 2; row++) {
+        for (var col = 0; col < 5; col++) {
             var x = col * cellW;
             var y = row * cellH;
-            ctx.clearRect(x, y, cellW, cellH);
-            ctx.beginPath();
-            ctx.moveTo(x, y);
-            ctx.lineTo(x + cellW, y);
-            ctx.lineTo(x + cellW, y + cellH);
-            ctx.lineTo(x, y + cellH);
-            ctx.closePath();
-            ctx.stroke();
+
+//            alert(x + " " + y + " " + cellW + " " + cellH);
+            ctx.strokeRect(x, y, cellW, cellH);
             dice(x, y, sixMode);
         }
     }
