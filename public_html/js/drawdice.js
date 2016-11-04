@@ -1,4 +1,4 @@
-var ctx, size, cellW, cellH;
+var ctx, cellW, cellH;
 
 function dice(x, y, sixMode) {
     var hBord = (cellW <= cellH) ? (cellW - size) / 2 : (cellW - 2 * size) / 3;
@@ -18,7 +18,7 @@ function dice(x, y, sixMode) {
 }
 
 function drawDice(elem, sixMode) {
-    var c = document.getElementById(elem);
+    c = document.getElementById(elem);
     ctx = c.getContext("2d");
     cellW = c.width / 5;
     cellH = c.height / 2;
@@ -31,10 +31,8 @@ function drawDice(elem, sixMode) {
         for (var col = 0; col < 5; col++) {
             var x = col * cellW;
             var y = row * cellH;
-
-//            alert(x + " " + y + " " + cellW + " " + cellH);
             ctx.strokeRect(x, y, cellW, cellH);
-            dice(x, y, sixMode);
+            dice(x, y, sixMode);            
         }
     }
 }
@@ -75,7 +73,8 @@ function six_die(x, y) {
 }
 
 function ten_die(x, y) {
-
+    ctx.save();
+    
     ctx.setTransform(size, 0, 0, size, x, y);
 
     //Draw background
@@ -92,18 +91,16 @@ function ten_die(x, y) {
     ctx.lineTo(1 / 6, 7 / 9);
     ctx.closePath();
     ctx.lineWidth = 1 / size;
-    ctx.fillStyle = "#ff0000";
+    ctx.fillStyle = "#008000";
     ctx.fill();
     ctx.stroke();
-
+    
     //Draw random number
     var num = Math.floor(Math.random() * 10);
     ctx.fillStyle = "#ffffff";
-    var fontHeight = 12;
-    var fontScale = fontHeight * 7 / 18 / size;
-    var txtWidth = ctx.measureText(num).width;
-    var txtShiftH = 0.5 - (txtWidth * fontScale / 2);
-    var txtShiftV = fontHeight * fontScale * 9 / 7;
-    ctx.transform(fontScale, 0, 0, fontScale, txtShiftH, txtShiftV);
+    var txtShiftH = 0.5 - (ctx.measureText(num).width * 0.025);
+    ctx.transform(0.05, 0, 0, 0.05, txtShiftH, 0.75);
     ctx.fillText(num, 0, 1);
+
+    ctx.restore();
 }
